@@ -1,0 +1,27 @@
+:host {
+  display: block;
+}
+.products {
+  position: relative;
+  &__new {
+    margin: -35px -35px 35px;
+    background: #f9f9f9;
+    padding: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    pizza-item {
+      background: #fff;
+      flex: 0 0 33%;
+      margin: 0 0 55px;
+      transition: 0.2s all ease;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

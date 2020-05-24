@@ -1,0 +1,22 @@
+{
+  "name": "cypress-parallel-demo",
+  "version": "1.0.0",
+  "description": "cypress-parallel Demo Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tnicola/cypress-parallel.git"
+  },
+  "author": "tnicola",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tnicola/cypress-parallel/issues"
+  },
+  "homepage": "https://github.com/tnicola/cypress-parallel#readme",
+  "dependencies": {
+    "cypress": "^4.6.0"
+  }
+}

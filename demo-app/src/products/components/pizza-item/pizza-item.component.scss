@@ -1,0 +1,25 @@
+.pizza-item {
+  text-align: center;
+  margin: 0 10px;
+  padding: 20px 10px;
+  border-radius: 4px;
+  background: #f5f5f5;
+  a {
+    color: #333;
+  }
+  h4 {
+    margin: 10px 0;
+  }
+  &__base {
+    position: relative;
+  }
+  &__topping {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
