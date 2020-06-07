@@ -2,7 +2,11 @@ describe('Modify pizza', () => {
   beforeEach(() => {
     cy.server();
     cy.fixture('pizzas').as('pizzasAPI');
-    cy.route({ method: 'POST', url: '/api/pizzas' }).as('postNewPizza');
+    cy.fixture('addTopping').as('addToppingAPI');
+    cy.route({
+      method: 'PUT',
+      url: '/api/pizzas/*'
+    }).as('addTopping');
     cy.route({
       method: 'GET',
       status: 200,
@@ -14,55 +18,78 @@ describe('Modify pizza', () => {
   });
 
   it('should remove a topping', () => {
-    cy.get('.products__new a').click();
-    cy.get('.pizza-form__input').should('have.value', '');
-    cy.get('.pizza-form__input')
-      .invoke('attr', 'placeholder')
-      .should('be', 'e.g. Pepperoni');
-  });
-
-  it('should add a topping', () => {
-    cy.get('.products__new a').click();
-    cy.get('.pizza-form__input').should('have.value', '');
-    cy.get('.pizza-form__input')
-      .invoke('attr', 'placeholder')
-      .should('be', 'e.g. Pepperoni');
-  });
-
-  it('can remove and add the same topping', () => {
-    cy.get('.products__new a').click();
-    cy.get('.pizza-form__input').focus('');
-    cy.get('.pizza-form__input').blur();
-
-    cy.get('.pizza-form__error').should('contain', 'Pizza must have a name');
-  });
-
-  it('should create a new pizza correctly', () => {
-    cy.get('.products__new a').click();
-
-    cy.get('.pizza-form__input').type('My new pizza');
+    cy.get('.pizza-item')
+      .contains(`Seaside Surfin'`)
+      .within(() => {
+        cy.get('.btn.btn__ok').click();
+      });
     cy.get('.pizza-toppings-item')
       .contains('bacon')
       .click();
-    cy.get('.pizza-toppings-item')
-      .contains('basil')
-      .click();
-    cy.get('.pizza-toppings-item')
-      .contains('tomato')
+    cy.get('.btn.btn__ok')
+      .contains('Save changes')
       .click();
 
-    cy.get('button')
-      .contains('Create Pizza')
-      .click();
-
-    cy.wait('@postNewPizza')
+    cy.wait('@addTopping')
       .its('requestBody')
       .then(res => {
-        expect(res.name).to.equal('My new pizza');
         expect(res.toppings).to.deep.equal([
-          { id: 2, name: 'bacon' },
+          { id: 6, name: 'mushroom' },
+          { id: 7, name: 'olive' },
           { id: 3, name: 'basil' },
-          { id: 12, name: 'tomato' }
+          { id: 1, name: 'anchovy' },
+          { id: 8, name: 'onion' },
+          { id: 11, name: 'sweetcorn' },
+          { id: 9, name: 'pepper' },
+          { id: 5, name: 'mozzarella' }
+        ]);
+      });
+  });
+
+  it('should add a topping', () => {
+    cy.get('.pizza-item')
+      .contains(`Plain Ol' Pepperoni`)
+      .within(() => {
+        cy.get('.btn.btn__ok').click();
+      });
+    cy.get('.pizza-toppings-item')
+      .contains('mushroom')
+      .click();
+    cy.get('.btn.btn__ok')
+      .contains('Save changes')
+      .click();
+
+    cy.wait('@addTopping')
+      .its('requestBody')
+      .then(res => {
+        expect(res.toppings).to.deep.equal([
+          { id: 10, name: 'pepperoni' },
+          { id: 6, name: 'mushroom' }
+        ]);
+      });
+  });
+
+  it('can remove and add the same topping', () => {
+    cy.get('.pizza-item')
+      .contains(`Plain Ol' Pepperoni`)
+      .within(() => {
+        cy.get('.btn.btn__ok').click();
+      });
+    cy.get('.pizza-toppings-item')
+      .contains('pepperoni')
+      .click();
+    cy.get('.pizza-toppings-item')
+      .contains('pepperoni')
+      .click();
+    cy.get('.btn.btn__ok')
+      .contains('Save changes')
+      .click();
+
+    cy.wait('@addTopping')
+      .its('requestBody')
+      .then(res => {
+        expect(res.toppings).to.deep.equal([
+          { id: 10, name: 'pepperoni' },
         ]);
       });
   });
