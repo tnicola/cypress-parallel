@@ -13,6 +13,8 @@ describe('Pizza', () => {
     });
 
     it('should navigate to products when products button is clicked', () => {
+        cy.wait(5000);
+
         cy.get('.app__nav a').contains('Products').click();
         cy.url().should('include', 'products');
 

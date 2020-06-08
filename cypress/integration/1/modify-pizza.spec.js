@@ -18,6 +18,8 @@ describe('Modify pizza', () => {
   });
 
   it('should remove a topping', () => {
+    cy.wait(5000);
+
     cy.get('.pizza-item')
       .contains(`Seaside Surfin'`)
       .within(() => {

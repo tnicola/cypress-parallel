@@ -1,0 +1,28 @@
+{
+  "name": "cypress-parallel",
+  "version": "0.0.1",
+  "description": "Reduce up to 40% your Cypress suite execution time parallelizing the test run on the same machine.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tnicola/cypress-parallel.git"
+  },
+  "keywords": [
+    "cypress",
+    "parallel",
+    "local",
+    "sharding"
+  ],
+  "author": "Nicola Tommasi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tnicola/cypress-parallel/issues"
+  },
+  "homepage": "https://github.com/tnicola/cypress-parallel#readme",
+  "bin": {
+    "cypress-parallel": "./cli.js"
+  }
+}

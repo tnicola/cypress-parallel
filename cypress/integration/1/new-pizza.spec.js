@@ -14,6 +14,8 @@ describe('Create pizza', () => {
   });
 
   it('should have the right placeholder', () => {
+    cy.wait(5000);
+
     cy.get('.products__new a').click();
     cy.get('.pizza-form__input').should('have.value', '');
     cy.get('.pizza-form__input')
