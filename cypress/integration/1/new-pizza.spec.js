@@ -49,13 +49,14 @@ describe('Create pizza', () => {
       .contains('Create Pizza')
       .click();
 
+      // This test intentionally fail
     cy.wait('@postNewPizza')
       .its('requestBody')
       .then(res => {
         expect(res.name).to.equal('My new pizza');
         expect(res.toppings).to.deep.equal([
           { id: 2, name: 'bacon' },
-          { id: 3, name: 'basil' },
+          { id: 3, name: 'basilico' },
           { id: 12, name: 'tomato' }
         ]);
       });
