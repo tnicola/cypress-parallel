@@ -1,7 +1,7 @@
 # cypress-parallel
 Reduce up to 40% your Cypress suite execution time parallelizing the test run on the same machine.
  
- # Run your Cypress test in parallel
+ # Run your Cypress test in parallel (locally)
 
  ## Features
  - Automatically detects your Cypress test suite
