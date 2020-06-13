@@ -32,3 +32,4 @@ vendor/*-manifest.json
 gh-pages
 #others
 demo-app/db.json
+cypress/parallel-weights.json
