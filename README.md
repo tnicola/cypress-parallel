@@ -8,7 +8,7 @@ Reduce up to 40% your Cypress suite execution time parallelizing the test run on
 📄 - Read (if exists) a weight file\
 ⚖️ - Split spec files into different threads\
 ⚙️ - For each thread it runs the Cypress command you've passed as argument\
-📈 - Wait fo all thread to finish and collects the result in a single report
+📈 - Wait for all threads to finish and collects the result in a single report
 
 # How to use
 
