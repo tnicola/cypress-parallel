@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "cy:open": "cypress open",
-        "cy:run": "cypress run"
+        "cy:run": "cypress run",
+        "cy:parallel": "node --inspect lib/cli.js cy:run"
     },
     "repository": {
         "type": "git",
@@ -18,7 +19,6 @@
     },
     "homepage": "https://github.com/tnicola/cypress-parallel#readme",
     "dependencies": {
-        "cli-table": "^0.3.1",
         "cypress": "^4.6.0"
     }
 }

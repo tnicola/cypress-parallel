@@ -8,8 +8,7 @@
     "build:dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
     "build:production": "npm run clean && npm run build",
     "clean": "rimraf build",
-    "start": "npm run build:dev",
-    "test": "karma start ./karma.conf.js"
+    "start": "npm run build:dev"
   },
   "devDependencies": {
     "@angular/compiler": "5.0.3",
@@ -17,7 +16,6 @@
     "@ngtools/webpack": "1.7.1",
     "@types/core-js": "0.9.43",
     "@types/jasmine": "2.6.0",
-    "@types/karma": "0.13.36",
     "@types/node": "8.0.28",
     "angular-router-loader": "0.6.0",
     "angular2-template-loader": "0.6.2",
@@ -30,12 +28,6 @@
     "jasmine-core": "2.8.0",
     "jasmine-marbles": "0.2.0",
     "json-server": "^0.16.1",
-    "karma": "1.7.1",
-    "karma-chrome-launcher": "2.2.0",
-    "karma-jasmine": "1.1.0",
-    "karma-sourcemap-loader": "0.3.7",
-    "karma-spec-reporter": "0.0.31",
-    "karma-webpack": "2.0.4",
     "ngrx-store-freeze": "^0.2.0",
     "node-sass": "^4.14.1",
     "progress-bar-webpack-plugin": "1.9.3",
