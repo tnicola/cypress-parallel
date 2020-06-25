@@ -29,6 +29,13 @@ Reduce up to 40% your Cypress suite execution time parallelizing the test run on
     ...
 }
  ```
+
+## Launch the new script
+
+```
+npm run cy:parallel
+```
+
 # Contributors
 Looking for contributors.
 # License
