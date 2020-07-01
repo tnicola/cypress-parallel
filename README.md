@@ -18,6 +18,12 @@ Reduce up to 40% your Cypress suite execution time parallelizing the test run on
  npm i cypress-parallel
  ```
 
+ or 
+
+```
+yarn add cypress-parallel
+ ```
+
 ## Add a new script
  In your `package.json` add a new script:
 
