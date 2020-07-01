@@ -1,3 +1,4 @@
+[![npm version](https://badge.fury.io/js/cypress-parallel.svg)](https://badge.fury.io/js/cypress-parallel)
 # cypress-parallel
 Reduce up to 40% your Cypress suite execution time parallelizing the test run on the same machine.
  
@@ -8,7 +9,7 @@ Reduce up to 40% your Cypress suite execution time parallelizing the test run on
 📄 - Read (if exists) a weight file\
 ⚖️ - Split spec files into different threads\
 ⚙️ - For each thread it runs the Cypress command you've passed as argument\
-📈 - Wait fo all thread to finish and collects the result in a single report
+📈 - Wait for all threads to finish and collects the result in a single report
 
 # How to use
 
@@ -24,10 +25,26 @@ Reduce up to 40% your Cypress suite execution time parallelizing the test run on
 "scripts" :{
     ...
     "cy:run": "cypress run", // It can be any cypress command with any argument
-    "cy:parallel" : "cypress-parallel cy:run 2"
+    "cy:parallel" : "cypress-parallel -s cy:run -t 2 -d <your-cypress-specs-folder>"
     ...
 }
  ```
+
+## Launch the new script
+
+```
+npm run cy:parallel
+```
+
+### Scripts options
+| Option       | Alias    | Description                 | Type     |
+| ------------ | -------- | --------------------------- | ---------|
+| --help       |          | Show help                   |          |
+| --version    |          | Show version number         |          |
+| --script     | -s       | Your npm Cypress command    | string   |
+| --threads    | -t       | Number of threads           | number   |
+| --specsDir   | -d       | Cypress specs directory.    | string   |
+
 # Contributors
 Looking for contributors.
 # License
