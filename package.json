@@ -20,6 +20,7 @@
     "homepage": "https://github.com/tnicola/cypress-parallel#readme",
     "dependencies": {
         "cypress": "^4.6.0",
-        "cypress-parallel": "file:lib"
+        "cypress-parallel": "file:lib",
+        "mocha": "^8.0.1"
     }
 }
