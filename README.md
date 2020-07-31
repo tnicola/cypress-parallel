@@ -25,10 +25,18 @@ Reduce up to 40% your Cypress suite execution time parallelizing the test run on
 "scripts" :{
     ...
     "cy:run": "cypress run", // It can be any cypress command with any argument
-    "cy:parallel" : "cypress-parallel -s cy:run -t 2 -d <your-cypress-specs-folder>"
+    "cy:parallel" : "cypress-parallel -s cy:run -t 2 -d <your-cypress-specs-folder> -a '\"<your-cypress-cmd-args>\"'"
     ...
 }
  ```
+
+### With Arguments
+
+Sample:
+
+```
+-a '\"--config baseUrl=http://localhost:3000\"'
+```
 
 ## Launch the new script
 
@@ -37,13 +45,15 @@ npm run cy:parallel
 ```
 
 ### Scripts options
-| Option       | Alias    | Description                 | Type     |
-| ------------ | -------- | --------------------------- | ---------|
-| --help       |          | Show help                   |          |
-| --version    |          | Show version number         |          |
-| --script     | -s       | Your npm Cypress command    | string   |
-| --threads    | -t       | Number of threads           | number   |
-| --specsDir   | -d       | Cypress specs directory.    | string   |
+
+| Option     | Alias | Description                        | Type   |
+| ---------- | ----- | ---------------------------------- | ------ |
+| --help     |       | Show help                          |        |
+| --version  |       | Show version number                |        |
+| --script   | -s    | Your npm Cypress command           | string |
+| --args     | -a    | Your npm Cypress command arguments | string |
+| --threads  | -t    | Number of threads                  | number |
+| --specsDir | -d    | Cypress specs directory.           | string |
 
 # Contributors
 Looking for contributors.
