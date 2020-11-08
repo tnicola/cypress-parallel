@@ -61,6 +61,10 @@ npm run cy:parallel
 | --threads  | -t    | Number of threads                  | number |
 | --specsDir | -d    | Cypress specs directory.           | string |
 
+# Env variable for plugins
+A cypress plugin can read the thread number using  
+`process.env.CYPRESS_PARALLEL_THREAD`
+
 # Contributors
 Looking for contributors.
 # License
