@@ -1,32 +1,32 @@
 {
-    "name": "cypress-parallel",
-    "version": "0.2.1",
-    "description": "Reduce up to 40% your Cypress suite execution time parallelizing the test run on the same machine.",
-    "main": "cli.js",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/tnicola/cypress-parallel.git"
-    },
-    "keywords": [
-        "cypress",
-        "parallel",
-        "local",
-        "sharding"
-    ],
-    "author": "Nicola Tommasi",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/tnicola/cypress-parallel/issues"
-    },
-    "homepage": "https://github.com/tnicola/cypress-parallel#readme",
-    "bin": {
-        "cypress-parallel": "./cli.js"
-    },
-    "dependencies": {
-        "cli-table3": "^0.6.0",
-        "cross-spawn": "^7.0.3",
-        "is-npm": "^5.0.0",
-        "mocha": "^8.2.1",
-        "yargs": "15.3.1"
-    }
+  "name": "cypress-parallel",
+  "version": "0.2.2",
+  "description": "Reduce up to 40% your Cypress suite execution time parallelizing the test run on the same machine.",
+  "main": "cli.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tnicola/cypress-parallel.git"
+  },
+  "keywords": [
+    "cypress",
+    "parallel",
+    "local",
+    "sharding"
+  ],
+  "author": "Nicola Tommasi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tnicola/cypress-parallel/issues"
+  },
+  "homepage": "https://github.com/tnicola/cypress-parallel#readme",
+  "bin": {
+    "cypress-parallel": "./cli.js"
+  },
+  "dependencies": {
+    "cli-table3": "^0.6.0",
+    "cross-spawn": "^7.0.3",
+    "is-npm": "^5.0.0",
+    "mocha": "^8.2.1",
+    "yargs": "15.3.1"
+  }
 }
