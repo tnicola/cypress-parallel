@@ -35,28 +35,20 @@ describe('Create pizza', () => {
     cy.get('.products__new a').click();
 
     cy.get('.pizza-form__input').type('My new pizza');
-    cy.get('.pizza-toppings-item')
-      .contains('bacon')
-      .click();
-    cy.get('.pizza-toppings-item')
-      .contains('basil')
-      .click();
-    cy.get('.pizza-toppings-item')
-      .contains('tomato')
-      .click();
+    cy.get('.pizza-toppings-item').contains('bacon').click();
+    cy.get('.pizza-toppings-item').contains('basil').click();
+    cy.get('.pizza-toppings-item').contains('tomato').click();
 
-    cy.get('button')
-      .contains('Create Pizza')
-      .click();
+    cy.get('button').contains('Create Pizza').click();
 
-      // This test intentionally fail
+    // This test intentionally fail
     cy.wait('@postNewPizza')
       .its('requestBody')
-      .then(res => {
+      .then((res) => {
         expect(res.name).to.equal('My new pizza');
         expect(res.toppings).to.deep.equal([
           { id: 2, name: 'bacon' },
-          { id: 3, name: 'basilico' },
+          { id: 3, name: 'basil' },
           { id: 12, name: 'tomato' }
         ]);
       });

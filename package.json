@@ -1,28 +1,28 @@
 {
-    "name": "cypress-parallel-demo",
-    "version": "1.0.0",
-    "description": "cypress-parallel Demo Project",
-    "main": "index.js",
-    "scripts": {
-        "cy:open": "cypress open",
-        "cy:run": "cypress run",
-        "cy:parallel": "node_modules/.bin/cypress-parallel -s cy:run -t 1 -d cypress/integration/1",
-        "cy:parallel:spec" : "node_modules/.bin/cypress-parallel -s cy:run -t 2 -d cypress/integration/1 -r spec",
-        "cy:parallel:junit": "node_modules/.bin/cypress-parallel -s cy:run -t 2 -d cypress/integration/1 -r junit -o 'mochaFile=demo-app/reporting/junit/e2e-junit-[hash].xml'"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/tnicola/cypress-parallel.git"
-    },
-    "author": "tnicola",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/tnicola/cypress-parallel/issues"
-    },
-    "homepage": "https://github.com/tnicola/cypress-parallel#readme",
-    "dependencies": {
-        "cypress": "^4.6.0",
-        "cypress-parallel": "file:lib",
-        "is-npm": "5.0.0"
-    }
+  "name": "cypress-parallel-demo",
+  "version": "1.0.0",
+  "description": "cypress-parallel Demo Project",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --browser chrome --headless",
+    "cy:parallel": "node_modules/.bin/cypress-parallel -s cy:run -t 4 -d cypress/integration",
+    "cy:parallel:spec": "node_modules/.bin/cypress-parallel -s cy:run -t 2 -d cypress/integration/1 -r spec",
+    "cy:parallel:junit": "node_modules/.bin/cypress-parallel -s cy:run -t 2 -d cypress/integration/1 -r junit -o 'mochaFile=demo-app/reporting/junit/e2e-junit-[hash].xml'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tnicola/cypress-parallel.git"
+  },
+  "author": "tnicola",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tnicola/cypress-parallel/issues"
+  },
+  "homepage": "https://github.com/tnicola/cypress-parallel#readme",
+  "dependencies": {
+    "cypress": "^4.6.0",
+    "cypress-parallel": "file:lib",
+    "is-npm": "5.0.0"
+  }
 }
