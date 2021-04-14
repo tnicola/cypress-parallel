@@ -70,8 +70,8 @@ npm run cy:parallel
 | --args            | -a    | Your npm Cypress command arguments | string |
 | --threads         | -t    | Number of threads                  | number |
 | --specsDir        | -d    | Cypress specs directory.           | string |
-| --reporter        | -d    | Reporter to pass to Cypress.       | string |
-| --reporterOptions | -d    | Reporter options                   | string |
+| --reporter        | -r    | Reporter to pass to Cypress.       | string |
+| --reporterOptions | -o    | Reporter options                   | string |
 
 # Contributors
 
