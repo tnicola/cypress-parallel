@@ -9,7 +9,9 @@
     "cy:run": "cypress run --browser chrome --headless",
     "cy:parallel": "node_modules/.bin/cypress-parallel -s cy:run -t 4 -d 'cypress/integration/**/*.js'",
     "cy:parallel:spec": "node_modules/.bin/cypress-parallel -s cy:run -t 2 -d cypress/integration/1 -r spec",
-    "cy:parallel:junit": "node_modules/.bin/cypress-parallel -s cy:run -t 2 -d cypress/integration/1 -r junit -o 'mochaFile=demo-app/reporting/junit/e2e-junit-[hash].xml'"
+    "cy:parallel:junit": "node_modules/.bin/cypress-parallel -s cy:run -t 2 -d cypress/integration/1 -r junit -o 'mochaFile=demo-app/reporting/junit/e2e-junit-[hash].xml'",
+    "serve-and-test:run": "start-server-and-test start http://localhost:3000 cy:run",
+    "serve-and-test:parallel": "start-server-and-test start http://localhost:3000 cy:parallel"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
   "dependencies": {
     "cypress": "^4.6.0",
     "cypress-parallel": "file:lib",
-    "is-npm": "5.0.0"
+    "is-npm": "5.0.0",
+    "start-server-and-test": "^1.12.5"
   }
 }
