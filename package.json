@@ -4,9 +4,10 @@
   "description": "cypress-parallel Demo Project",
   "main": "index.js",
   "scripts": {
+    "start": "npm start --prefix demo-app",
     "cy:open": "cypress open",
     "cy:run": "cypress run --browser chrome --headless",
-    "cy:parallel": "node_modules/.bin/cypress-parallel -s cy:run -t 4 -d cypress/integration",
+    "cy:parallel": "node_modules/.bin/cypress-parallel -s cy:run -t 4 -d 'cypress/integration/**/*.js'",
     "cy:parallel:spec": "node_modules/.bin/cypress-parallel -s cy:run -t 2 -d cypress/integration/1 -r spec",
     "cy:parallel:junit": "node_modules/.bin/cypress-parallel -s cy:run -t 2 -d cypress/integration/1 -r junit -o 'mochaFile=demo-app/reporting/junit/e2e-junit-[hash].xml'"
   },

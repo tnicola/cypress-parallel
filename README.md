@@ -72,6 +72,8 @@ npm run cy:parallel
 | --specsDir        | -d    | Cypress specs directory.           | string |
 | --reporter        | -r    | Reporter to pass to Cypress.       | string |
 | --reporterOptions | -o    | Reporter options                   | string |
+| --bail            | -b    | Exit on first failing thread       | string |
+| --verbose         | -v    | Some additional logging            | string |
 
 # Contributors
 

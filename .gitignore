@@ -35,3 +35,4 @@ demo-app/db.json
 demo-app/reporting/*
 cypress/parallel-weights.json
 cypress/screenshots/*
+runner-results/
