@@ -36,3 +36,4 @@ demo-app/reporting/*
 cypress/parallel-weights.json
 cypress/screenshots/*
 runner-results/
+multi-reporter-config.json
