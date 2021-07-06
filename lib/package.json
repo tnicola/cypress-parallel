@@ -29,5 +29,8 @@
     "lodash.camelcase": "^4.3.0",
     "mocha": "^8.2.1",
     "yargs": "15.3.1"
+  },
+  "peerDependencies": {
+    "cypress-multi-reporters": "^1.5.0"
   }
 }
