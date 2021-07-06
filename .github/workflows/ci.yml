@@ -21,9 +21,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Prepare root
-      run: |
-        npm ci
     - name: Prepare demo-app
       run: |
         cd demo-app
@@ -31,6 +28,9 @@ jobs:
     - name: Prepare lib
       run: |
         cd lib
+        npm ci
+    - name: Prepare root
+      run: |
         npm ci
     - name: Execute tests without cypress-parallel
       run: |
