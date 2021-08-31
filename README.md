@@ -72,6 +72,7 @@ npm run cy:parallel
 | --specsDir        | -d    | Cypress specs directory.           | string |
 | --reporter        | -r    | Reporter to pass to Cypress.       | string |
 | --reporterOptions | -o    | Reporter options                   | string |
+| --weightsFile     | -w    | Custom route to weights file       | string |
 
 # Contributors
 
