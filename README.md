@@ -4,10 +4,9 @@
 
 Reduce up to 40% your Cypress suite execution time parallelizing the test run on the same machine.
 
-| cypress | cypress-parallel |
-:-------------------------:|:-------------------------:
+|                                                          cypress                                                          |                                                      cypress-parallel                                                       |
+| :-----------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: |
 | ![cy-serial-small](https://user-images.githubusercontent.com/38537547/114301114-92600a80-9ac3-11eb-9166-e95ae9cd5178.gif) | ![cy-parallel_small](https://user-images.githubusercontent.com/38537547/114301127-9db33600-9ac3-11eb-9bfc-c2096023bba7.gif) |
-
 
 # Run your Cypress tests in parallel (locally)
 
@@ -72,7 +71,8 @@ npm run cy:parallel
 | --specsDir        | -d    | Cypress specs directory.           | string |
 | --reporter        | -r    | Reporter to pass to Cypress.       | string |
 | --reporterOptions | -o    | Reporter options                   | string |
-| --weightsFile     | -w    | Custom route to weights file       | string |
+| --bail            | -b    | Exit on first failing thread       | string |
+| --verbose         | -v    | Some additional logging            | string |
 
 # Contributors
 

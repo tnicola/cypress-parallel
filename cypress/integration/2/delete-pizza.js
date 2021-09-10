@@ -20,6 +20,7 @@ describe('Delete pizza', () => {
 
   it('should delete a pizza', () => {
     cy.wait(5000);
+
     cy.get('.pizza-item')
       .contains(`Seaside Surfin'`)
       .within(() => {
@@ -30,27 +31,9 @@ describe('Delete pizza', () => {
       .contains('Delete Pizza')
       .click();
 
-    cy.wait('@deletePizza').should(res => {
-      expect(res.status).to.equal(200);
-    });
-  });
-
-  describe('Nested pizza deletion', () => {
-    it('should delete a nested pizza', () => {
-      cy.wait(5000);
-      cy.get('.pizza-item')
-        .contains(`Seaside Surfin'`)
-        .within(() => {
-          cy.get('.btn.btn__ok').click();
-        });
-
-      cy.get('.btn.btn__warning')
-        .contains('Delete Pizza')
-        .click();
-
-      cy.wait('@deletePizza').should(res => {
-        expect(res.status).to.equal(200);
+    cy.wait('@deletePizza')
+      .should(res => {
+          expect(res.status).to.equal(200);
       });
-    });
-  })
+  });
 });
