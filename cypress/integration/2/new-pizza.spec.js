@@ -20,7 +20,7 @@ describe('Create pizza', () => {
     cy.get('.pizza-form__input').should('have.value', '');
     cy.get('.pizza-form__input')
       .invoke('attr', 'placeholder')
-      .should('be', 'e.g. Pepperoni');
+      .should('eq', 'e.g. Pepperoni');
   });
 
   it('should show an error when pizza has no name ', () => {

@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/tnicola/cypress-parallel#readme",
   "dependencies": {
-    "cypress": "^4.6.0",
+    "cypress": "^9.1.0",
     "cypress-multi-reporters": "^1.5.0",
     "cypress-parallel": "file:lib",
     "fs-extra": "^10.0.0",
