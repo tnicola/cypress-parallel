@@ -19,6 +19,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      with:
+        node-version: 10
     - name: Checkout
       uses: actions/checkout@v2
     - name: Prepare demo-app
