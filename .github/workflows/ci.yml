@@ -19,6 +19,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/setup-node@v2
       with:
         node-version: '10'
     - name: Checkout
