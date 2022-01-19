@@ -30,7 +30,6 @@
     "cypress": "^9.1.0",
     "cypress-multi-reporters": "^1.5.0",
     "cypress-parallel": "file:lib",
-    "fs-extra": "^10.0.0",
     "is-npm": "5.0.0",
     "mocha-junit-reporter": "^2.0.0",
     "start-server-and-test": "^1.12.5"
