@@ -59,6 +59,14 @@ Sample:
 npm run cy:parallel
 ```
 
+or 
+
+Run with npx (no package installation needed)
+
+```
+npx cy:parallel -s cy:run -t 2 -d <your-cypress-specs-folder> -a '\"<your-cypress-cmd-args>\"'
+```
+
 ### Scripts options
 
 | Option            | Alias | Description                        | Type   |
@@ -73,6 +81,17 @@ npm run cy:parallel
 | --reporterOptions | -o    | Reporter options                   | string |
 | --bail            | -b    | Exit on first failing thread       | string |
 | --verbose         | -v    | Some additional logging            | string |
+| --strictMode      | -m    | Add stricter checks after running the tests           | boolean |
+
+**NB**: If you use *cypress-cucumber-preprocesor*, please **disable** the *strictMode* to avoid possible errors:
+
+```typescript
+"scripts" :{
+  ...
+  "cy:parallel" : "cypress-parallel -s cy:run -t 4 -m false"
+  ...
+}
+```
 
 # Contributors
 
