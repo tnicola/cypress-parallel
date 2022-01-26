@@ -69,19 +69,20 @@ npx cy:parallel -s cy:run -t 2 -d <your-cypress-specs-folder> -a '\"<your-cypres
 
 ### Scripts options
 
-| Option            | Alias | Description                        | Type   |
-| ----------------- | ----- | ---------------------------------- | ------ |
-| --help            |       | Show help                          |        |
-| --version         |       | Show version number                |        |
-| --script          | -s    | Your npm Cypress command           | string |
-| --args            | -a    | Your npm Cypress command arguments | string |
-| --threads         | -t    | Number of threads                  | number |
-| --specsDir        | -d    | Cypress specs directory.           | string |
-| --reporter        | -r    | Reporter to pass to Cypress.       | string |
-| --reporterOptions | -o    | Reporter options                   | string |
-| --bail            | -b    | Exit on first failing thread       | string |
-| --verbose         | -v    | Some additional logging            | string |
-| --strictMode      | -m    | Add stricter checks after running the tests           | boolean |
+| Option               | Alias | Description                        | Type   |
+| -------------------- | ----- | ---------------------------------- | ------ |
+| --help               |       | Show help                          |        |
+| --version            |       | Show version number                |        |
+| --script             | -s    | Your npm Cypress command           | string |
+| --args               | -a    | Your npm Cypress command arguments | string |
+| --threads            | -t    | Number of threads                  | number |
+| --specsDir           | -d    | Cypress specs directory.           | string |
+| --reporter           | -r    | Reporter to pass to Cypress.       | string |
+| --reporterOptions    | -o    | Reporter options                   | string |
+| --reporterModulePath | -n    | Specify the reporter module path   | string |
+| --bail               | -b    | Exit on first failing thread       | string |
+| --verbose            | -v    | Some additional logging            | string |
+| --strictMode         | -m    | Add stricter checks after running the tests           | boolean |
 
 **NB**: If you use *cypress-cucumber-preprocesor*, please **disable** the *strictMode* to avoid possible errors:
 
@@ -89,6 +90,16 @@ npx cy:parallel -s cy:run -t 2 -d <your-cypress-specs-folder> -a '\"<your-cypres
 "scripts" :{
   ...
   "cy:parallel" : "cypress-parallel -s cy:run -t 4 -m false"
+  ...
+}
+```
+
+**NB**: If your *cypress-multi-reporters* module is not found on the same level as your Cypress suite (e.g. in a mono-repo) then you can specify the module directory for Cypress to search within.
+
+```typescript
+"scripts" :{
+  ...
+  "cy:parallel" : "cypress-parallel -s cy:run -t 4 -n .../../../node_modules/cypress-multi-reporters"
   ...
 }
 ```
