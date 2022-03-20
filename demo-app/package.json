@@ -29,7 +29,7 @@
     "jasmine-marbles": "0.2.0",
     "json-server": "^0.16.1",
     "ngrx-store-freeze": "^0.2.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "progress-bar-webpack-plugin": "1.9.3",
     "raw-loader": "0.5.1",
     "rimraf": "2.6.2",
