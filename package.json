@@ -1,6 +1,6 @@
 {
   "name": "cypress-parallel-demo",
-  "version": "1.0.0",
+  "version": "0.9.0",
   "description": "cypress-parallel Demo Project",
   "main": "index.js",
   "scripts": {
