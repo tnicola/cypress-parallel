@@ -69,20 +69,21 @@ npx cy:parallel -s cy:run -t 2 -d <your-cypress-specs-folder> -a '\"<your-cypres
 
 ### Scripts options
 
-| Option               | Alias | Description                        | Type   |
-| -------------------- | ----- | ---------------------------------- | ------ |
-| --help               |       | Show help                          |        |
-| --version            |       | Show version number                |        |
-| --script             | -s    | Your npm Cypress command           | string |
-| --args               | -a    | Your npm Cypress command arguments | string |
-| --threads            | -t    | Number of threads                  | number |
-| --specsDir           | -d    | Cypress specs directory.           | string |
-| --reporter           | -r    | Reporter to pass to Cypress.       | string |
-| --reporterOptions    | -o    | Reporter options                   | string |
+| Option            | Alias | Description                        | Type   |
+| ----------------- | ----- | ---------------------------------- | ------ |
+| --help            |       | Show help                          |        |
+| --version         |       | Show version number                |        |
+| --script          | -s    | Your npm Cypress command           | string |
+| --args            | -a    | Your npm Cypress command arguments | string |
+| --threads         | -t    | Number of threads                  | number |
+| --specsDir        | -d    | Cypress specs directory            | string |
+| --weightsJson     | -w    | Parallel weights json file         | string |
+| --reporter        | -r    | Reporter to pass to Cypress.       | string |
+| --reporterOptions | -o    | Reporter options                   | string |
 | --reporterModulePath | -n    | Specify the reporter module path   | string |
-| --bail               | -b    | Exit on first failing thread       | string |
-| --verbose            | -v    | Some additional logging            | string |
-| --strictMode         | -m    | Add stricter checks after running the tests           | boolean |
+| --bail            | -b    | Exit on first failing thread       | string |
+| --verbose         | -v    | Some additional logging            | string |
+| --strictMode      | -m    | Add stricter checks after running the tests           | boolean |
 
 **NB**: If you use *cypress-cucumber-preprocesor*, please **disable** the *strictMode* to avoid possible errors:
 

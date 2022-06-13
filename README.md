@@ -80,6 +80,7 @@ npx cy:parallel -s cy:run -t 2 -d <your-cypress-specs-folder> -a '\"<your-cypres
 | --weightsJson     | -w    | Parallel weights json file         | string |
 | --reporter        | -r    | Reporter to pass to Cypress.       | string |
 | --reporterOptions | -o    | Reporter options                   | string |
+| --reporterModulePath | -n    | Specify the reporter module path   | string |
 | --bail            | -b    | Exit on first failing thread       | string |
 | --verbose         | -v    | Some additional logging            | string |
 | --strictMode      | -m    | Add stricter checks after running the tests           | boolean |
@@ -90,6 +91,16 @@ npx cy:parallel -s cy:run -t 2 -d <your-cypress-specs-folder> -a '\"<your-cypres
 "scripts" :{
   ...
   "cy:parallel" : "cypress-parallel -s cy:run -t 4 -m false"
+  ...
+}
+```
+
+**NB**: If your *cypress-multi-reporters* module is not found on the same level as your Cypress suite (e.g. in a mono-repo) then you can specify the module directory for Cypress to search within.
+
+```typescript
+"scripts" :{
+  ...
+  "cy:parallel" : "cypress-parallel -s cy:run -t 4 -n .../../../node_modules/cypress-multi-reporters"
   ...
 }
 ```
