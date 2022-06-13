@@ -76,7 +76,8 @@ npx cy:parallel -s cy:run -t 2 -d <your-cypress-specs-folder> -a '\"<your-cypres
 | --script          | -s    | Your npm Cypress command           | string |
 | --args            | -a    | Your npm Cypress command arguments | string |
 | --threads         | -t    | Number of threads                  | number |
-| --specsDir        | -d    | Cypress specs directory.           | string |
+| --specsDir        | -d    | Cypress specs directory            | string |
+| --weightsJson     | -w    | Parallel weights json file         | string |
 | --reporter        | -r    | Reporter to pass to Cypress.       | string |
 | --reporterOptions | -o    | Reporter options                   | string |
 | --bail            | -b    | Exit on first failing thread       | string |
