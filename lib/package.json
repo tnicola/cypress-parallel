@@ -24,12 +24,14 @@
   },
   "dependencies": {
     "cli-table3": "^0.6.0",
+    "colors": "^1.4.0",
     "cross-spawn": "^7.0.3",
+    "fs-extra": "^10.0.0",
+    "glob-escape": "^0.0.2",
     "is-npm": "^5.0.0",
     "lodash.camelcase": "^4.3.0",
     "mocha": "^8.2.1",
-    "yargs": "15.3.1",
-    "fs-extra": "^10.0.0"
+    "yargs": "15.3.1"
   },
   "peerDependencies": {
     "cypress-multi-reporters": "^1.5.0"
