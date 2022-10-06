@@ -111,4 +111,4 @@ Looking for contributors.
 
 # License
 
-MIT
+This project is licensed under the MIT license. See [LICENSE](LICENSE).
