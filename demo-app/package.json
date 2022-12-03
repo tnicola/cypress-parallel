@@ -27,7 +27,7 @@
     "html-loader": "0.5.1",
     "jasmine-core": "2.8.0",
     "jasmine-marbles": "0.2.0",
-    "json-server": "^0.16.1",
+    "json-server": "^0.17.1",
     "ngrx-store-freeze": "^0.2.0",
     "node-sass": "^4.14.1",
     "progress-bar-webpack-plugin": "1.9.3",
