@@ -21,7 +21,7 @@ jobs:
     steps:
     - uses: actions/setup-node@v2
       with:
-        node-version: '10'
+        node-version: '12'
     - name: Checkout
       uses: actions/checkout@v2
     - name: Prepare demo-app
