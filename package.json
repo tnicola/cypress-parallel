@@ -4,7 +4,7 @@
   "description": "cypress-parallel Demo Project",
   "main": "index.js",
   "scripts": {
-    "start": "npm start --prefix demo-app",
+    "start": "npm start --prefix pizza-demo",
     "cy:open": "cypress open",
     "cy:run": "cypress run --browser chrome --headless",
     "cy:parallel": "node_modules/.bin/cypress-parallel -s cy:run -t 4 -d 'cypress/integration/1/*.js'",

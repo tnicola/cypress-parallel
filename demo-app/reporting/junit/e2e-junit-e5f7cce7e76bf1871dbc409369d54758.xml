@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="5.953" tests="1" failures="0">
-  <testsuite name="Root Suite" timestamp="2021-03-22T23:02:29" tests="0" file="cypress/integration/1/delete-pizza.js" failures="0" time="0">
-  </testsuite>
-  <testsuite name="Delete pizza" timestamp="2021-03-22T23:02:29" tests="1" failures="0" time="5.953">
-    <testcase name="Delete pizza should delete a pizza" time="5.953" classname="should delete a pizza">
-    </testcase>
-  </testsuite>
-</testsuites>
