@@ -40,7 +40,7 @@ In your `package.json` add a new script:
 "scripts" :{
   ...
   "cy:run": "cypress run", // It can be any cypress command with any argument
-  "cy:parallel" : "cypress-parallel -s cy:run -t 2 -d <your-cypress-specs-folder> -a '\"<your-cypress-cmd-args>\"'"
+  "cy:parallel" : "cypress-parallel -s cy:run -t 2 -d '<your-cypress-specs-folder>' -a '\"<your-cypress-cmd-args>\"'"
   ...
 }
 ```
@@ -64,7 +64,7 @@ or
 Run with npx (no package installation needed)
 
 ```
-npx cy:parallel -s cy:run -t 2 -d <your-cypress-specs-folder> -a '\"<your-cypress-cmd-args>\"'
+npx cy:parallel -s cy:run -t 2 -d '<your-cypress-specs-folder>' -a '\"<your-cypress-cmd-args>\"'
 ```
 
 ### Scripts options
