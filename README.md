@@ -64,7 +64,7 @@ or
 Run with npx (no package installation needed)
 
 ```
-npx cy:parallel -s cy:run -t 2 -d '<your-cypress-specs-folder>' -a '\"<your-cypress-cmd-args>\"'
+npx cy:parallel -s cy:run -t 2 -d '<your-cypress-specs-folder>' -a '"<your-cypress-cmd-args>"'
 ```
 
 ### Scripts options
