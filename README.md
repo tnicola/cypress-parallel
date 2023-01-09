@@ -105,6 +105,17 @@ npx cy:parallel -s cy:run -t 2 -d '<your-cypress-specs-folder>' -a '"<your-cypre
 }
 ```
 
+## Env variables
+
+### CYPRESS_THREAD
+
+You can get the current thread index by reading the `CYPRESS_THREAD` variable.
+
+```javascript
+ const threadIndex = process.env.CYPRESS_THREAD;
+ // return 1, 2, 3, 4, ...
+```
+
 # Contributors
 
 Looking for contributors.
