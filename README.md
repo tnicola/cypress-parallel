@@ -4,7 +4,7 @@
 
 Reduce your Cypress test execution time parallelizing the test runs on the same machine.
 
-forked from [cypress-parallel] 
+forked from [cypress-parallel](https://github.com/tnicola/cypress-parallel)
 
 # Run your Cypress tests in parallel (locally)
 
