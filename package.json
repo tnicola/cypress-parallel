@@ -1,37 +1,24 @@
 {
-  "name": "cypress-parallel-demo",
+  "name": "cli-cypress-parallel",
   "version": "1.0.0",
-  "description": "cypress-parallel Demo Project",
-  "main": "index.js",
+  "description": "run cypress tests in multiple parallel processes",
+  "type": "commonjs",
+  "main": "cypress_parallel/cypress-parallel.js",
   "scripts": {
-    "start": "npm start --prefix pizza-demo",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run --browser chrome --headless",
-    "cy:parallel": "node_modules/.bin/cypress-parallel -s cy:run -t 4 -d 'cypress/integration/1/*.js'",
-    "cy:parallel:many": "node_modules/.bin/cypress-parallel -s cy:run -t 8 -d 'cypress/integration/**/*.js'",
-    "cy:parallel:spec": "node_modules/.bin/cypress-parallel -s cy:run -t 2 -d cypress/integration/1 -r spec",
-    "cy:parallel:junit": "node_modules/.bin/cypress-parallel -s cy:run -t 2 -d cypress/integration/1 -r mocha-junit-reporter -o 'mochaFile=demo-app/reporting/junit/e2e-junit-[hash].xml'",
-    "serve-and-test:run": "start-server-and-test start http://localhost:3000 cy:run",
-    "serve-and-test:parallel": "start-server-and-test start http://localhost:3000 cy:parallel",
-    "serve-and-test:parallel:spec": "start-server-and-test start http://localhost:3000 cy:parallel:spec",
-    "serve-and-test:parallel:junit": "start-server-and-test start http://localhost:3000 cy:parallel:junit"
+    "cy:parallel": "npx cli-cypress-parallel",
+    "cy:parallel:test": "npm run cy:parallel -- -t 6 -d './test/cypress/integration/**' --configFile './test/cypress.json' -o './test/reporter-config.json'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tnicola/cypress-parallel.git"
-  },
-  "author": "tnicola",
+  "author": "willrichboa",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tnicola/cypress-parallel/issues"
-  },
-  "homepage": "https://github.com/tnicola/cypress-parallel#readme",
   "dependencies": {
-    "cypress": "^9.5.4",
-    "cypress-multi-reporters": "^1.5.0",
-    "cypress-parallel": "file:lib",
-    "is-npm": "5.0.0",
-    "mocha-junit-reporter": "^2.0.0",
-    "start-server-and-test": "^1.12.5"
+    "cli-table3": "^0.6.3",
+    "colors": "^1.4.0",
+    "cypress": "9.7.0",
+    "cypress-multi-reporters": "^1.6.3",
+    "glob": "^10.0.0",
+    "yargs": "^17.7.1"
+  },
+  "bin": {
+    "cli-cypress-parallel": "cypress_parallel/cypress-parallel.js"
   }
 }

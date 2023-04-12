@@ -1,0 +1,9 @@
+{
+  "video": false,
+  "viewportWidth": 1920,
+  "viewportHeight": 1080,
+  "retries": {
+    "runMode": 0
+  },
+  "integrationFolder": "test/cypress/integration"
+}

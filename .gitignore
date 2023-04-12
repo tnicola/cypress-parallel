@@ -30,10 +30,6 @@ vendor/*-manifest.json
 
 # Docs
 gh-pages
-#others
-demo-app/db.json
-demo-app/reporting/*
-cypress/parallel-weights.json
-cypress/screenshots/*
-runner-results/
-multi-reporter-config.json
+
+#cypress
+**screenshots/

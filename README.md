@@ -1,109 +1,58 @@
-[![npm version](https://badge.fury.io/js/cypress-parallel.svg)](https://badge.fury.io/js/cypress-parallel)
 
-# cypress-parallel
 
-Reduce up to 40% your Cypress suite execution time parallelizing the test run on the same machine.
+# cli-cypress-parallel
 
-|                                                          cypress                                                          |                                                      cypress-parallel                                                       |
-| :-----------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: |
-| ![cy-serial-small](https://user-images.githubusercontent.com/38537547/114301114-92600a80-9ac3-11eb-9166-e95ae9cd5178.gif) | ![cy-parallel_small](https://user-images.githubusercontent.com/38537547/114301127-9db33600-9ac3-11eb-9bfc-c2096023bba7.gif) |
+Reduce your Cypress test execution time parallelizing the test runs on the same machine.
+
+forked from [cypress-parallel] 
 
 # Run your Cypress tests in parallel (locally)
 
-## How it works
+Executes Cypress programatically in multiple threads using Promise.all and the [Cypress module api](https://docs.cypress.io/guides/guides/module-api)
+Collates the results in memory for easy reporting.
+It will record the time-based "weight" of each test file into a local json, and optionally uses that to evenly distribute the test files for better thread balance in future test executions.
+Includes a simple spec reporter, but can be used with any reporter that works in parallel execution such as mochawesome.
 
-🔍 - Search for existing Cypress tests\
-📄 - Read (if exists) a weight file\
-⚖️ - Split spec files into different threads\
-⚙️ - For each thread it runs the Cypress command you've passed as argument\
-📈 - Wait for all threads to finish and collects the result in a single report
+## Install and run
 
-# How to use
-
-## Install
+checkout locally
 
 ```
-npm i cypress-parallel -D
+chmod +x ./cypress_parallel/cypress-parallel.js
+sudo npm link
 ```
+### run cypress tests in this repo
 
-or
-
-```
-yarn add cypress-parallel -D
-```
-
-## Add a new script
-
-In your `package.json` add a new script:
-
-```typescript
-"scripts" :{
-  ...
-  "cy:run": "cypress run", // It can be any cypress command with any argument
-  "cy:parallel" : "cypress-parallel -s cy:run -t 2 -d '<your-cypress-specs-folder>' -a '\"<your-cypress-cmd-args>\"'"
-  ...
-}
-```
-
-### With Arguments
-
-Sample:
+by default runs with 2 threads using the glob pattern "test/cypress/integration/\*\*/\*\*"
 
 ```
--a '\"--config baseUrl=http://localhost:3000\"'
+npm run cy:parallel:test
 ```
+currently using cypress v9.7.0, but I have tested with the latest version 12.9.0 and confirmed that also works, although it seems to not perform as well as v.9.7.0.
 
-## Launch the new script
-
-```
-npm run cy:parallel
-```
-
-or 
-
-Run with npx (no package installation needed)
+### With Custom Arguments
 
 ```
-npx cy:parallel -s cy:run -t 2 -d '<your-cypress-specs-folder>' -a '"<your-cypress-cmd-args>"'
+npx cypress-parallel -t 4 --browser electron -d "cypress/integration/myfolder/**"
 ```
 
-### Scripts options
+#### Arguments
 
-| Option            | Alias | Description                        | Type   |
+| Arguments         | Alias | Description                        | Type   |
 | ----------------- | ----- | ---------------------------------- | ------ |
 | --help            |       | Show help                          |        |
 | --version         |       | Show version number                |        |
-| --script          | -s    | Your npm Cypress command           | string |
-| --args            | -a    | Your npm Cypress command arguments | string |
 | --threads         | -t    | Number of threads                  | number |
 | --specsDir        | -d    | Cypress specs directory            | string |
 | --weightsJson     | -w    | Parallel weights json file         | string |
-| --reporter        | -r    | Reporter to pass to Cypress.       | string |
-| --reporterOptions | -o    | Reporter options                   | string |
-| --reporterModulePath | -n    | Specify the reporter module path   | string |
-| --bail            | -b    | Exit on first failing thread       | string |
+| --reporter        | -r    | reporter name                      | string |
+| --reporterOptions | -o    | Reporter options config file name  | string |
 | --verbose         | -v    | Some additional logging            | string |
-| --strictMode      | -m    | Add stricter checks after running the tests           | boolean |
-
-**NB**: If you use *cypress-cucumber-preprocesor*, please **disable** the *strictMode* to avoid possible errors:
-
-```typescript
-"scripts" :{
-  ...
-  "cy:parallel" : "cypress-parallel -s cy:run -t 4 -m false"
-  ...
-}
-```
-
-**NB**: If your *cypress-multi-reporters* module is not found on the same level as your Cypress suite (e.g. in a mono-repo) then you can specify the module directory for Cypress to search within.
-
-```typescript
-"scripts" :{
-  ...
-  "cy:parallel" : "cypress-parallel -s cy:run -t 4 -n .../../../node_modules/cypress-multi-reporters"
-  ...
-}
-```
+| --strictMode      | -m    | Add stricter checks after running the tests | boolean |
+| --dry             | -y    | shows files and threads. does not execute tests | boolean |
+| --configFile      |       | path to a cypress config file | string | 
+| --headless        |       | if true then headless execution | boolean |
+| --browser         |       | which browser to use. chrome, electron, etc | string |
 
 ## Env variables
 
@@ -115,11 +64,5 @@ You can get the current thread index by reading the `CYPRESS_THREAD` variable.
  const threadIndex = process.env.CYPRESS_THREAD;
  // return 1, 2, 3, 4, ...
 ```
-
-# Contributors
-
-Looking for contributors.
-
-# License
 
 This project is licensed under the MIT license. See [LICENSE](LICENSE).
