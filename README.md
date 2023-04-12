@@ -8,10 +8,11 @@ forked from [cypress-parallel](https://github.com/tnicola/cypress-parallel)
 
 # Run your Cypress tests in parallel (locally)
 
-Executes Cypress programatically in multiple threads using Promise.all and the [Cypress module api](https://docs.cypress.io/guides/guides/module-api)
-Collates the results in memory for easy reporting.
+Executes Cypress programatically in multiple threads using Promise.all and the [Cypress module api](https://docs.cypress.io/guides/guides/module-api). Then collates the results in memory for easy reporting.
+
 It will record the time-based "weight" of each test file into a local json, and optionally uses that to evenly distribute the test files for better thread balance in future test executions.
-Includes a simple spec reporter, but can be used with any reporter that works in parallel execution such as mochawesome.
+
+ Includes a simple spec reporter, but can be used with any reporter that works in parallel execution such as mochawesome.
 
 ## Install and run
 
@@ -33,7 +34,7 @@ currently using cypress v9.7.0, but I have tested with the latest version 12.9.0
 ### With Custom Arguments
 
 ```
-npx cypress-parallel -t 4 --browser electron -d "cypress/integration/myfolder/**"
+npx cli-cypress-parallel -t 4 --browser electron -d "cypress/integration/myfolder/**"
 ```
 
 #### Arguments
