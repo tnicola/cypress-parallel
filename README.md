@@ -67,6 +67,12 @@ Run with npx (no package installation needed)
 npx cy:parallel -s cy:run -t 2 -d '<your-cypress-specs-folder>' -a '"<your-cypress-cmd-args>"'
 ```
 
+## Passing Specs
+
+```
+cypress-parallel -s cy:run -t 2 -a '\"<your-cypress-cmd-args>\"' --spec path/to/spec1.spec.js path/to/spec2.spec.js
+```
+
 ### Scripts options
 
 | Option            | Alias | Description                        | Type   |
@@ -77,6 +83,7 @@ npx cy:parallel -s cy:run -t 2 -d '<your-cypress-specs-folder>' -a '"<your-cypre
 | --args            | -a    | Your npm Cypress command arguments | string |
 | --threads         | -t    | Number of threads                  | number |
 | --specsDir        | -d    | Cypress specs directory            | string |
+| --spec            |       | Cypress spec file paths            | string |
 | --weightsJson     | -w    | Parallel weights json file         | string |
 | --reporter        | -r    | Reporter to pass to Cypress.       | string |
 | --reporterOptions | -o    | Reporter options                   | string |
