@@ -1,14 +1,8 @@
 describe('Create pizza', () => {
   beforeEach(() => {
-    cy.server();
     cy.fixture('pizzas').as('pizzasAPI');
-    cy.route({ method: 'POST', url: '/api/pizzas' }).as('postNewPizza');
-    cy.route({
-      method: 'GET',
-      status: 200,
-      url: '/api/pizzas',
-      response: '@pizzasAPI'
-    }).as('getPizzas');
+    cy.intercept('POST', '/api/pizzas').as('postNewPizza');
+    cy.intercept('GET', '/api/pizzas', { fixture: 'pizzas' }).as('getPizzas');
 
     cy.visit('');
   });
@@ -42,15 +36,18 @@ describe('Create pizza', () => {
     cy.get('button').contains('Create Pizza').click();
 
     // This test intentionally fail
-    cy.wait('@postNewPizza')
-      .its('requestBody')
-      .then((res) => {
-        expect(res.name).to.equal('My new pizza');
-        expect(res.toppings).to.deep.equal([
+    cy.wait('@postNewPizza').then((interception) => {
+      expect(interception).to.exist;
+
+      expect(interception.request.body).to.deep.equal({
+        name: 'My new pizza',
+        toppings: [
           { id: 2, name: 'bacon' },
           { id: 3, name: 'basil' },
           { id: 12, name: 'tomato' }
-        ]);
+        ]
       });
+    }
+    );
   });
 });

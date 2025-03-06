@@ -1,19 +1,9 @@
 describe('Delete pizza', () => {
   beforeEach(() => {
-    cy.server();
     cy.fixture('pizzas').as('pizzasAPI');
     cy.fixture('addTopping').as('addToppingAPI');
-    cy.route({
-      method: 'DELETE',
-      url: '/api/pizzas/*',
-      response: {}
-    }).as('deletePizza');
-    cy.route({
-      method: 'GET',
-      status: 200,
-      url: '/api/pizzas',
-      response: '@pizzasAPI'
-    }).as('getPizzas');
+    cy.intercept('DELETE', '/api/pizzas/*', {}).as('deletePizza');
+    cy.intercept('GET', '/api/pizzas', { fixture: 'pizzas' }).as('getPizzas');
 
     cy.visit('');
   });
@@ -30,8 +20,8 @@ describe('Delete pizza', () => {
       .contains('Delete Pizza')
       .click();
 
-    cy.wait('@deletePizza').should(res => {
-      expect(res.status).to.equal(200);
+    cy.wait('@deletePizza').should(interception => {
+      expect(interception.response.statusCode).to.equal(200);
     });
   });
 
@@ -48,8 +38,8 @@ describe('Delete pizza', () => {
         .contains('Delete Pizza')
         .click();
 
-      cy.wait('@deletePizza').should(res => {
-        expect(res.status).to.equal(200);
+      cy.wait('@deletePizza').should(interception => {
+        expect(interception.response.statusCode).to.equal(200);
       });
     });
   })

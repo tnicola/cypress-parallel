@@ -1,13 +1,7 @@
 describe('Pizza', () => {
     beforeEach(() => {
-        cy.server();
         cy.fixture('pizzas').as('pizzasAPI');
-        cy.route({
-          method: 'GET',
-          status: 200,
-          url: '/api/pizzas',
-          response: '@pizzasAPI'
-        }).as('getPizzas');
+        cy.intercept('GET', '/api/pizzas', { fixture: 'pizzas' }).as('getPizzas');
 
         cy.visit('');
     });

@@ -1,24 +1,15 @@
 describe('Modify pizza', () => {
   beforeEach(() => {
-    cy.server();
     cy.fixture('pizzas').as('pizzasAPI');
     cy.fixture('addTopping').as('addToppingAPI');
-    cy.route({
-      method: 'PUT',
-      url: '/api/pizzas/*'
-    }).as('addTopping');
-    cy.route({
-      method: 'GET',
-      status: 200,
-      url: '/api/pizzas',
-      response: '@pizzasAPI'
-    }).as('getPizzas');
+    cy.intercept('PUT', '/api/pizzas/*').as('addToppingRequest');
+    cy.intercept('GET', '/api/pizzas', { fixture: 'pizzas' }).as('getPizzas');
 
     cy.visit('');
   });
 
   it('should remove a topping', () => {
-    cy.wait(5000);
+    cy.wait('@getPizzas');
 
     cy.get('.pizza-item')
       .contains(`Seaside Surfin'`)
@@ -32,10 +23,9 @@ describe('Modify pizza', () => {
       .contains('Save changes')
       .click();
 
-    cy.wait('@addTopping')
-      .its('requestBody')
-      .then(res => {
-        expect(res.toppings).to.deep.equal([
+    cy.wait('@addToppingRequest')
+      .then(interception => {
+        expect(interception.request.body.toppings).to.deep.equal([
           { id: 6, name: 'mushroom' },
           { id: 7, name: 'olive' },
           { id: 3, name: 'basil' },
@@ -61,10 +51,9 @@ describe('Modify pizza', () => {
       .contains('Save changes')
       .click();
 
-    cy.wait('@addTopping')
-      .its('requestBody')
-      .then(res => {
-        expect(res.toppings).to.deep.equal([
+    cy.wait('@addToppingRequest')
+      .then(interception => {
+        expect(interception.request.body.toppings).to.deep.equal([
           { id: 10, name: 'pepperoni' },
           { id: 6, name: 'mushroom' }
         ]);
@@ -87,10 +76,9 @@ describe('Modify pizza', () => {
       .contains('Save changes')
       .click();
 
-    cy.wait('@addTopping')
-      .its('requestBody')
-      .then(res => {
-        expect(res.toppings).to.deep.equal([
+    cy.wait('@addToppingRequest')
+      .then(interception => {
+        expect(interception.request.body.toppings).to.deep.equal([
           { id: 10, name: 'pepperoni' },
         ]);
       });

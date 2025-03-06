@@ -1,14 +1,8 @@
 describe('Create pizza', () => {
   beforeEach(() => {
-    cy.server();
     cy.fixture('pizzas').as('pizzasAPI');
-    cy.route({ method: 'POST', url: '/api/pizzas' }).as('postNewPizza');
-    cy.route({
-      method: 'GET',
-      status: 200,
-      url: '/api/pizzas',
-      response: '@pizzasAPI'
-    }).as('getPizzas');
+    cy.intercept('POST', '/api/pizzas').as('postNewPizza');
+    cy.intercept('GET', '/api/pizzas', { fixture: 'pizzas' }).as('getPizzas');
 
     cy.visit('');
   });
@@ -35,29 +29,25 @@ describe('Create pizza', () => {
     cy.get('.products__new a').click();
 
     cy.get('.pizza-form__input').type('My new pizza');
-    cy.get('.pizza-toppings-item')
-      .contains('bacon')
-      .click();
-    cy.get('.pizza-toppings-item')
-      .contains('basil')
-      .click();
-    cy.get('.pizza-toppings-item')
-      .contains('tomato')
-      .click();
+    cy.get('.pizza-toppings-item').contains('bacon').click();
+    cy.get('.pizza-toppings-item').contains('basil').click();
+    cy.get('.pizza-toppings-item').contains('tomato').click();
 
-    cy.get('button')
-      .contains('Create Pizza')
-      .click();
+    cy.get('button').contains('Create Pizza').click();
 
-    cy.wait('@postNewPizza')
-      .its('requestBody')
-      .then(res => {
-        expect(res.name).to.equal('My new pizza');
-        expect(res.toppings).to.deep.equal([
+    // This test intentionally fail
+    cy.wait('@postNewPizza').then((interception) => {
+      expect(interception).to.exist;
+
+      expect(interception.request.body).to.deep.equal({
+        name: 'My new pizza',
+        toppings: [
           { id: 2, name: 'bacon' },
           { id: 3, name: 'basil' },
           { id: 12, name: 'tomato' }
-        ]);
+        ]
       });
+    }
+    );
   });
 });
