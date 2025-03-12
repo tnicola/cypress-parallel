@@ -14,6 +14,7 @@
     "serve-and-test:run": "start-server-and-test start http://localhost:3000 cy:run",
     "serve-and-test:parallel": "start-server-and-test start http://localhost:3000 cy:parallel",
     "serve-and-test:parallel:many": "start-server-and-test start http://localhost:3000 cy:parallel:many",
+    "serve-and-test:parallel:some": "start-server-and-test start http://localhost:3000 cy:parallel",
     "serve-and-test:parallel:spec": "start-server-and-test start http://localhost:3000 cy:parallel:spec",
     "serve-and-test:parallel:junit": "start-server-and-test start http://localhost:3000 cy:parallel:junit"
   },

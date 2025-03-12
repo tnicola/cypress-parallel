@@ -1,13 +1,13 @@
 describe('Pizza', () => {
     beforeEach(() => {
-<<<<<<< HEAD:cypress/e2e/3/pizzas.cy.js
+<<<<<<< HEAD:cypress/e2e/4/pizzas.cy.js
         cy.fixture('pizzas').as('pizzasAPI');
         cy.intercept('GET', '/api/pizzas', { fixture: 'pizzas' }).as('getPizzas');
 =======
         cy.fixture('pizzas').then((pizzas) => {
             cy.intercept('GET', '/api/pizzas', pizzas).as('getPizzas');
           });
->>>>>>> f758d4533ee3df353641cb529c6ae0ab4bfa52e4:cypress/e2e/3/pizza.cy.js
+>>>>>>> f758d4533ee3df353641cb529c6ae0ab4bfa52e4:cypress/e2e/4/pizza.cy.js
 
         cy.visit('');
     });

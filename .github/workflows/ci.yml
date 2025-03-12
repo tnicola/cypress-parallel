@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]
+  workflow_dispatch:
 permissions:
   actions: none
   checks: none
@@ -38,6 +38,9 @@ jobs:
     - name: Execute tests with defaults
       run: |
         npm run serve-and-test:parallel
+    - name: Execute only some tests
+      run: |
+        npm run serve-and-test:parallel:some
     - name: Execute tests with spec reporter
       run: |
         npm run serve-and-test:parallel:spec
